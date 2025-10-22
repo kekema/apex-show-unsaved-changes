@@ -1,2 +1,2 @@
 # apex-show-unsaved-changes
-Shows a message notification listing unsaved changes on the page.
+Dynamic action plugin to show a message notification listing unsaved changes on the page.
