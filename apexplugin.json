@@ -1,0 +1,35 @@
+{
+    "name" : "Show Unsaved Changes",
+    "version" : "1.0.0",
+    "description" : "Shows a message notification listing unsaved changes on the page. #lib4x",
+    "keywords" : ["Unsaved Changes"],
+    "homepage" : "https://github.com/kekema/apex-show-unsaved-changes",
+    "bugs" : {
+      "url" : "https://github.com/kekema/apex-show-unsaved-changes/issues",
+      "email" : "karel0008@gmail.com"
+    },
+    "license" : "MIT",
+    "commercial" : "No",
+    "author" : {
+      "name" : "Karel Ekema",
+      "email" : "karel0008@gmail.com",
+      "url" : "https://karelekema.hashnode.dev",
+      "twitter": "@KarelEkema"
+    },
+    "repository" : {
+      "type" : "git",
+      "url" : "https://github.com/kekema/apex-show-unsaved-changes"
+    },
+    "oracle" : {
+      "versions": ["19.0.0.0"],	
+      "apex" : {
+        "versions" : ["24.2"],
+        "plugin" : {
+          "internalName" : "LIB4X.AXT.SHOWUNSAVEDCHANGES",
+          "type" : "dynamic action",
+          "demo" : "https://oracleapex.com/ords/r/yola/demo/show-unsaved-changes",
+          "previewImage" : "https://github.com/kekema/apex-show-unsaved-changes/blob/main/show-unsaved-changes.jpg?raw=true"
+        }
+      }
+    }
+}
