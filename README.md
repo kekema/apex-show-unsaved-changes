@@ -5,5 +5,7 @@ Dynamic action plugin to show a message notification listing unsaved changes on 
 <img src="./show-unsaved-changes.jpg" height="25%" width="25%">
 </p>
 
+See also this [blog post](https://karelekema.hashnode.dev/oracle-apex-show-unsaved-changes-plugin).
+
 <h4>Plugin Versions</h4>
 Version 1.0.0 - build under APEX 24.2
