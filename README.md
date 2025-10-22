@@ -37,9 +37,23 @@ Page - Function and Global Variable Declaration:
 })();
 ```
 Then in the page designer, you can create the DA upon custom 'unloadcancelled' event.
-<h6>API</h6>
+<h5>API</h5>
+
 lib4x.message.unsavedChanges.addVisibilityCheck(pFunction) : same purpose as [apex.message.addVisibilityCheck()](https://docs.oracle.com/en/database/oracle/apex/24.2/aexjs/apex.message.html#.addVisibilityCheck)
 
+lib4x.message.unsavedChanges.addExtraChangedItemsCheck(pFunction) : give a function which returns any additional changes which are not tracked by APEX. The return is a string array. The items will be added to the list without hyperlink. Also see [apex.page.warnOnUnsavedChanges()](https://docs.oracle.com/en/database/oracle/apex/24.2/aexjs/apex.page.html#.warnOnUnsavedChanges), in particular the 'pExtraIsChanged' flag.
+
+window.lib4x.message.unsavedChanges.show()
+
+window.lib4x.message.unsavedChanges.hide()
+
+<h5>Translation</h5>
+
+Next are the messages available for translation:
+
+LIB4X.UC.NO_CHANGES_MSG : 'There are no unsaved changes.'<br>
+LIB4X.UC.CHANGES_MSG' : 'Unsaved change(s):'<br>
+LIB4X.UC.MSG_HEADING' : 'Unsaved Changes Message'
 
 <h4>Plugin Versions</h4>
 Version 1.0.0 - build under APEX 24.2
