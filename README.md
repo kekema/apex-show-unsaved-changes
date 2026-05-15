@@ -57,3 +57,5 @@ LIB4X.UC.MSG_HEADING' : 'Unsaved Changes Message'
 
 <h4>Plugin Versions</h4>
 Version 1.0.0 - build under APEX 24.2
+
+Version 1.0.1 - build under APEX 24.2    (minimum version for APEX 26.1)
