@@ -188,6 +188,7 @@ lib4x.axt.showUnsavedChanges = (function($) {
         
         let getMessageItems = function() {
             let messageItems = [];
+            const [apexMajorVersion, apexMinorVersion, apexPatchVersion] = apex.env.APEX_VERSION.split(".").map(Number);
             // compose message items from any page item changes
             apex.page.forEachPageItem($('#wwvFlowForm'), function(el, name) {
                 if (!el.disabled) {
@@ -210,10 +211,10 @@ lib4x.axt.showUnsavedChanges = (function($) {
                 apexModel.list().forEach(modelId => {
                     const model = apexModel.get(modelId);
                     if (model && model.isChanged()) {
-                        let regionStaticId = model.getOption('regionStaticId');
-                        let messageItemContent = apex.region(regionStaticId).call('option', 'config').regionAccTitle;
+                        let regionElementId = apexMajorVersion >= 26 ? model.getOption('regionDomId') : model.getOption('regionStaticId');
+                        let messageItemContent = apex.region(regionElementId).call('option', 'config').regionAccTitle;
                         let messageItem = {
-                            regionStaticId: regionStaticId,
+                            regionElementId: regionElementId,
                             model: model.name,
                             instance: model.instance,
                             content: messageItemContent,
@@ -284,7 +285,7 @@ lib4x.axt.showUnsavedChanges = (function($) {
             for (let i = 0; i < messageItems.length; i++) {
                 let messageItem   = messageItems[i];
                 // check if this message supports navigation to a component, currently it supports going to items or regions
-                let hasLink = (messageItem.pageItem || messageItem.regionStaticId);
+                let hasLink = (messageItem.pageItem || messageItem.regionElementId);
 
                 out.markup('<li')
                     .attr('class', 'a-Notification-item htmldbStdInf')
@@ -294,7 +295,7 @@ lib4x.axt.showUnsavedChanges = (function($) {
                     // keep list of attributes in sync with click handler code that uses them
                     out.markup('<a')
                         .attr('href', '#')
-                        .optionalAttr('data-region', messageItem.regionStaticId)
+                        .optionalAttr('data-region', messageItem.regionElementId)
                         .optionalAttr('data-model', messageItem.model)                    
                         .optionalAttr('data-instance', messageItem.instance)
                         .optionalAttr('data-for', messageItem.pageItem)
